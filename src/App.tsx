@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Board as BoardModel } from './app-models/Board';
+import { Board as BoardModel } from './models/Board';
 import Board from './components/Board/Board';
 
 function App() {

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vh;
   height: 100vh;
 }
 
@@ -33,4 +32,19 @@
 
 .white {
   background-color: #0aa384;
+}
+
+.selected {
+  background-color: #e5e33a;
+}
+
+.available {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background-color: #fdf908;
+}
+
+.enemy {
+  background-color: #fdf908;
 }

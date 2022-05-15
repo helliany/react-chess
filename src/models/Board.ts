@@ -1,3 +1,4 @@
+import { copyFile } from "fs";
 import { Cell } from "./Cell";
 import { Colors } from "./Colors";
 import { Bishop } from "./figures/Bishop";
@@ -28,6 +29,23 @@ export class Board {
 
   public getCell(x: number, y: number) {
     return this.cells[y][x];
+  }
+
+  public highlightCells(selectedCell: Cell | null) {
+    for (let i = 0; i < this.cells.length; i++) {
+      const row = this.cells[i];
+
+      for (let j = 0; j < row.length; j++) {
+        const target = row[j];
+        target.available = !!selectedCell?.figure?.canMove(target);
+      }
+    }
+  }
+
+  public getCopy(): Board {
+    const copyBoard = new Board();
+    copyBoard.cells = this.cells;
+    return copyBoard;
   }
 
   private addBishops() {
