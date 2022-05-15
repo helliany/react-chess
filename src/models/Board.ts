@@ -1,4 +1,3 @@
-import { copyFile } from "fs";
 import { Cell } from "./Cell";
 import { Colors } from "./Colors";
 import { Bishop } from "./figures/Bishop";
