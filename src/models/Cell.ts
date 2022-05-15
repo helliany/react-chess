@@ -34,7 +34,7 @@ export class Cell {
     }
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.figure === null;
   }
 
@@ -90,5 +90,13 @@ export class Cell {
     }
 
     return true;
+  }
+
+  isEnemy(target: Cell):boolean {
+    if (target.figure) {
+      return this.figure?.color !== target.figure?.color;
+    }
+    
+    return false;
   }
 }
