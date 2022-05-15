@@ -21,8 +21,14 @@
   height: 64px;
 }
 
+.cell img {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
 .black {
-  background-color: #e7e7e7;
+  background-color: #e7ecd7;
 }
 
 .white {
