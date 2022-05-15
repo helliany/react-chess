@@ -1,15 +1,24 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Board as BoardModel } from './app-models/Board';
+import Board from './components/Board/Board';
 
 function App() {
+  const [board, setBoard] = useState(new BoardModel());
+
+  useEffect(() => {
+    restart();
+  }, [])
+
+  const restart = () => {
+    const newBoard = new BoardModel();
+    newBoard.initCells();
+    setBoard(newBoard);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-       
-      </header>
+    <div className="app">
+      <Board board={board} setBoard={setBoard} />
     </div>
   );
 }
