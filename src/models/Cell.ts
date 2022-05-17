@@ -11,7 +11,13 @@ export class Cell {
   available: boolean;
   id: number;
 
-  constructor(board: Board, x: number, y: number, color: Colors, figure: Figure | null) {
+  constructor(
+    board: Board,
+    x: number,
+    y: number,
+    color: Colors,
+    figure: Figure | null
+  ) {
     this.x = x;
     this.y = y;
     this.color = color;
@@ -29,9 +35,20 @@ export class Cell {
   moveFigure(target: Cell) {
     if (this.figure && this.figure.canMove(target)) {
       this.figure.moveFigure(target);
+
+      if (target.figure) {
+        this.addLostFigure(target.figure);
+      }
+
       target.setFigure(this.figure);
       this.figure = null;
     }
+  }
+
+  addLostFigure(figure: Figure) {
+    figure.color === Colors.BLACK
+      ? this.board.lostBlackFigures.push(figure)
+      : this.board.lostWhiteFigures.push(figure);
   }
 
   isEmpty(): boolean {
@@ -84,7 +101,7 @@ export class Cell {
     const dx = this.x < target.x ? 1 : -1;
 
     for (let i = 1; i < absY; i++) {
-      if (!this.board.getCell(this.x + dx*i, this.y + dy*i).isEmpty()) {
+      if (!this.board.getCell(this.x + dx * i, this.y + dy * i).isEmpty()) {
         return false;
       }
     }
@@ -92,11 +109,11 @@ export class Cell {
     return true;
   }
 
-  isEnemy(target: Cell):boolean {
+  isEnemy(target: Cell): boolean {
     if (target.figure) {
       return this.figure?.color !== target.figure?.color;
     }
-    
+
     return false;
   }
 }

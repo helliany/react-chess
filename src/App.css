@@ -48,3 +48,37 @@
 .enemy {
   background-color: #fdf908;
 }
+
+.lost {
+  height: calc(50vh - 65px);
+  padding: 30px;
+  margin-left: 80px;
+  background-color: #e7ecd7;
+}
+
+.lost img {
+  width: 20px;
+  height: 20px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: 80px;
+}
+
+.timer > * {
+  margin: 0;
+}
+
+.timer button {
+  width: 100%;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #0aa384;
+  cursor: pointer;
+}

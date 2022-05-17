@@ -47,6 +47,8 @@ export class Board {
   public getCopy(): Board {
     const copyBoard = new Board();
     copyBoard.cells = this.cells;
+    copyBoard.lostBlackFigures = this.lostBlackFigures;
+    copyBoard.lostWhiteFigures = this.lostWhiteFigures;
     return copyBoard;
   }
 
