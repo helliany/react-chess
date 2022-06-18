@@ -1,4 +1,4 @@
-# Cats App
+# React Chess App
 [App link](https://helliany.github.io/react-chess/)
 
 SPA that allows you to play chess.
